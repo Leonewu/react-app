@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { Button } from 'antd';
+import TodoList from './todo/todoList'
+import ReduxTodoList from './todo/redux-todo'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Button>button</Button>
+        <TodoList />
+        <ReduxTodoList />
       </div>
     );
   }

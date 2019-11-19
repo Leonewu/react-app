@@ -1,0 +1,76 @@
+
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.todoList {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  &-input {
+    width: 300px;
+    margin: 20px auto;
+    display: block;
+  }
+}
+
+.todoItem {
+  display: grid;
+  grid-template-columns: minmax(300px, 500px) 100px;
+  grid-template-rows: 50px;
+  grid-auto-flow: row;
+  place-items: center start;
+  font-size: 18px;
+  transform: scale(1);
+  word-spacing: 2px;
+  &.completed > span:first-child {
+    background: rgba(224, 249, 181, 0.5);
+    transition: background 0.2s;
+    text-decoration: line-through;
+    color: #a7a1a1;
+  }
+  &.completed .todoItem-btn > img:first-child {
+    animation: scale 0.5s;
+  }
+  @keyframes scale {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+.todoItem-btn {
+  & > img {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    &:first-child {
+      margin-right: 10px;
+    }
+  }
+}
+
+.todoList-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.todoList-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 500ms ease-in;
+}
+.todoList-exit {
+  opacity: 1;
+}
+.todoList-exit-active {
+  opacity: 0;
+  transition: all 500ms ease-in;
+}
